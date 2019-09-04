@@ -41,4 +41,6 @@ app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
 
+console.log('http://localhost:3000/')
+
 module.exports = app
