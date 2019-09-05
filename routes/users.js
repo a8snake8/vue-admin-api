@@ -1,13 +1,11 @@
 const router = require('koa-router')()
+const userService = require('../config/mysqlConfig')
 
-router.prefix('/users')
+router.prefix('/user')
 
-router.get('/', function (ctx, next) {
-  ctx.body = 'this is a users response!'
-})
-
-router.get('/bar', function (ctx, next) {
-  ctx.body = 'this is a users/bar response'
+//获取所有用户(GET请求)
+router.post('/login', async (ctx, next) => {
+  ctx.body = await userService.findUserData();
 })
 
 module.exports = router
