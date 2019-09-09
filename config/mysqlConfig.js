@@ -34,7 +34,7 @@ let allServices = {
   findUserData: function (name) {
     let _sql = `select * from admin where acount = ${username} and password=${password}`
     return allServices.query(_sql).then(res => {
-      if (res.length == 1 && res[0].elm_userPhone === phone && elm_userPassword === password) {
+      if (res.length == 1 && res[0].acount === username && password === password) {
         return {
           msg: "登陆成功",
           code: 200
