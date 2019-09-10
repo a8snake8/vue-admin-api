@@ -31,21 +31,9 @@ let allServices = {
     })
 
   },
-  findUserData: function (name) {
-    let _sql = `select * from admin where acount = ${username} and password=${password}`
-    return allServices.query(_sql).then(res => {
-      if (res.length == 1 && res[0].acount === username && password === password) {
-        return {
-          msg: "登陆成功",
-          code: 200
-        }
-      } else {
-        return {
-          msg: "登录失败",
-          code: 201
-        }
-      }
-    })
+  findUserData: function (act) {
+    let _sql = `SELECT * FROM admin where acount="${act}";;`
+    return allServices.query(_sql)
   }
 }
 
